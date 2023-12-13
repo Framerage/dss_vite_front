@@ -1,0 +1,175 @@
+.headerContainer {
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10001;
+  font-family: var(--decor_font);
+}
+.headerBG{
+  background: linear-gradient(var(--extra_app_color) 1%,var(--light_app_color));
+  border-bottom: 3px groove var(--exclusive_app_color);
+}
+.headerLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
+  color: black;
+  height: min-content;
+  filter:drop-shadow(0 0px 10px var(--exclusive_app_color));
+}
+
+.firstLogo {
+  font-size: 40px;
+  text-transform: uppercase;
+}
+.secondLogo {
+  font-size: 28px;
+  margin-left: 60px;
+}
+.botBorder{
+  width: 0;
+  height: 2px;
+  background-color: var(--main_app_color);
+  transition: 0.5s;
+}
+.headerLogo:hover>.botBorder {
+  width:100%
+}
+.goBackArrow{
+  position: absolute;
+  top: 140px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+  border-radius: 5px;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.goBackArrow:hover{
+  transform: scale(1.1);
+}
+.arrowText{
+  position: absolute;
+  left: 35px;
+  top: -10px;
+  transform: skewY(15deg);
+  color: black;
+  font-size: 18px;
+  text-shadow:  3px 5px 3px var(--main_app_color);
+  text-transform: uppercase;
+}
+.authedBlock{
+  width: 350px;
+  height: min-content;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 10px;
+  color: white;
+  text-shadow: 0 0 2px black,0 2px 5px black,0 5px 7px black;
+  letter-spacing: 2px;
+}
+.cartBlock{
+  width:40px;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 100;
+  position: relative;
+}
+.cartCounter{
+position: absolute;
+top: -10px;
+right: -1px;
+color: black;
+text-shadow: 0 0 5px white;
+}
+.userShopCart{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.imgBorder{
+  width: 0;
+  height: 2px;
+  background-color: var(--main_app_color);
+  transition: 0.5s;
+}
+.cartBlock:hover>.imgBorder {
+  width:100%
+}
+.userBonuses{
+  font-size: 16px;
+  font-weight: 400;
+}
+.bonusesValue{
+  width: min-content;
+  height: min-content;
+  font-size: 30px;
+}
+.userLink{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.currentUser{
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+  filter:drop-shadow(0 0px 10px var(--exclusive_app_color))
+
+}
+.userBorder{
+  width: 0;
+  height: 2px;
+  background-color: var(--main_app_color);
+  transition: 0.5s;
+  margin-top: 4px;
+}
+.userLink:hover>.userBorder{
+  width:100%
+}
+.exitBtn{
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  background-image: url('../../assets/icons/door-open-solid.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.2s;
+  border: none;
+  border-radius: 2px;
+  filter:drop-shadow(0 0px 10px var(--exclusive_app_color))
+
+}
+.exitBtn:hover{
+  filter:drop-shadow(0 5px 5px white)
+}
+.headerNav {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+.headerNavItem {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.2s;
+  text-shadow:0 1px 7px var(--exclusive_app_color);
+}
+.headerNavItem:hover {
+  text-shadow: 0 0 5px white, 0 0 10px var(--main_app_color), 0 0 15px white, 0 0 20px var(--main_app_color);
+}

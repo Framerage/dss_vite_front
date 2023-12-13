@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Caprasimo&display=swap');
+:root{
+  --main_app_color:teal;
+  /* --main_app_color:darkorange; */
+  /* --main_app_color:greenyellow; */
+  --light_app_color:#024d4d;
+  /* --light_app_color:orange; */
+  --dark_app_color:#013535;
+  /* --dark_app_color:orangered; */
+  /* --dark_app_color:green; */
+  --exclusive_app_color:aqua;
+  /* --exclusive_app_color:#fc791e; */
+  --extra_app_color:#00a2ff;
+  /* --extra_app_color:#fb474e; */
+  /* --extra_app_color:#e507e5; */
+  /* --extra_app_color:#fd6e00;/ */
+  /* --extra_app_color:greenyellow; */
+  /* --extra_app_color:blue; */
+  --last_menu_color:black;
+  --medium_menu_color:lightgrey;
+  --center_menu_color:white;
+  --success_order_color:greenyellow;
+  --cancel_order_color:orangered;
+  --decor_font:'Caprasimo', serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* font-family: 'Anton', sans-serif;  */
+  /* for rus */
+  /* font-family: 'Caprasimo', serif; */
+  /* for english */
+  font-weight:600;
+}
+body,html {
+  width: 100%;
+  min-height: 100dvh;
+  background: linear-gradient(30deg,var(--extra_app_color),black,var(--exclusive_app_color),#b4b3b3,var(--exclusive_app_color),black,var(--extra_app_color)) no-repeat;
+}
+*::-webkit-scrollbar {
+  width: 15px;
+}
+*::-webkit-scrollbar-track {
+  background: linear-gradient(var(--extra_app_color),var(--exclusive_app_color));
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--main_app_color);
+  border-radius: 5px;
+}

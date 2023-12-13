@@ -1,0 +1,15 @@
+.appWrapper {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+.mainContainer{
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  z-index: 100;
+  padding: 0 50px;
+  padding-bottom: 50px;
+}

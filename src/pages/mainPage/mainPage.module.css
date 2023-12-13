@@ -1,0 +1,44 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: black;
+    font-size: 20px;
+}
+.mainContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.appPreview{
+    max-width: 1440px;
+    margin-left:130px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    min-height: 85vh;
+}
+.appPreviewBlocks{
+    max-width: 100%;
+    display: flex;
+    margin-left:150px;
+    flex-direction: column;
+    position: relative;
+}
+.scrollBtn{
+    width: min-content;
+    height: 45px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.scrollBtn:hover{
+    border-bottom: 6px groove aqua;
+    text-shadow:0 5px 10px aqua;
+}
