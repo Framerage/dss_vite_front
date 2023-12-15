@@ -1,17 +1,9 @@
-import React, {useMemo} from "react";
+import React, {useEffect, useMemo} from "react";
 import {Route, Routes} from "react-router-dom";
 
 import {APP_AUTH_ROUTES, APP_GENERAL_ROUTES} from "utils/routes";
 
-// import {AppDispatch} from "store";
-// import {useDispatch, useSelector} from "react-redux";
-// import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
-// import {isShopCartUse} from "store/modules/cart/selectors";
-// import {selectPopupImage} from "store/modules/popup/selectors";
-// import {getUserAuth, resetUserRequest} from "store/modules/auth/actions";
-// import {fetchUserInfo} from "store/modules/auth/async-actions";
-
-// import Cookies from "js-cookie";
+import Cookies from "js-cookie";
 
 import AppMenu from "components/appMenu";
 import AppFooter from "components/appFooter";
@@ -22,14 +14,18 @@ import AppHeader from "components/appHeader";
 import ErrorPage from "pages/errorPage";
 import LoginPage from "pages/loginPage";
 
+import {useAppDispatch} from "store";
+import {useSelector} from "react-redux";
+import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
+import {getUserAuth, resetUserRequest} from "store/modules/auth/actions";
+import {fetchUserInfo} from "store/modules/auth/async-actions";
 import classes from "./appLayout.module.css";
 
-const isAuth = false;
 const AppLayout: React.FC = () => {
-  // const userData = useSelector(selectUserData);
-  // const isAuth = useSelector(isUserAuth);
-  // const dispatch = useDispatch<AppDispatch>();
-  // const accTkn = Cookies.get("perAcTkn");
+  const userData = useSelector(selectUserData);
+  const isAuth = useSelector(isUserAuth);
+  const dispatch = useAppDispatch();
+  const accTkn = Cookies.get("perAcTkn");
 
   const appNavigation = useMemo(() => {
     return [
@@ -42,7 +38,7 @@ const AppLayout: React.FC = () => {
             "/catalog",
       },
       {
-        title: "Создать личный заказ",
+        title: "Желаемый заказ",
         // link: APP_AUTH_ROUTES.customOrder.link,
         link: "own-order",
       },
@@ -78,35 +74,36 @@ const AppLayout: React.FC = () => {
   // TODO: страница заказа, добавить оплату надо ли???
   // TODO:  добавить ли рефреш токен?
 
-  // useEffect(() => {
-  //   if (!isAuth) {
-  //     if (userData && userData.success && !accTkn) {
-  //       dispatch(resetUserRequest());
-  //       dispatch(getUserAuth(false));
-  //       return;
-  //     }
-  //     if (!userData && !accTkn) {
-  //       dispatch(getUserAuth(false));
-  //       return;
-  //     }
-  //     if (!userData && accTkn) {
-  //       dispatch(fetchUserInfo(accTkn));
-  //       return;
-  //     }
-  //     if (userData && !userData.success && accTkn) {
-  //       dispatch(fetchUserInfo(accTkn));
-  //       return;
-  //     }
-  //     if (userData && userData.success && accTkn) {
-  //       dispatch(getUserAuth(true));
-  //       return;
-  //     }
-  //   }
-  //   if (!accTkn) {
-  //     dispatch(resetUserRequest());
-  //     dispatch(getUserAuth(false));
-  //   }
-  // }, [userData, accTkn, isAuth]);
+  useEffect(() => {
+    if (!isAuth) {
+      if (userData && userData.success && !accTkn) {
+        dispatch(resetUserRequest());
+        dispatch(getUserAuth(false));
+        return;
+      }
+      if (!userData && !accTkn) {
+        dispatch(getUserAuth(false));
+        return;
+      }
+      if (!userData && accTkn) {
+        dispatch(fetchUserInfo(accTkn));
+        return;
+      }
+      if (userData && !userData.success && accTkn) {
+        dispatch(fetchUserInfo(accTkn));
+        return;
+      }
+      if (userData && userData.success && accTkn) {
+        dispatch(getUserAuth(true));
+        return;
+      }
+    }
+    if (!accTkn) {
+      dispatch(resetUserRequest());
+      dispatch(getUserAuth(false));
+    }
+  }, [userData, accTkn, isAuth]);
+
   const isCartOpened = false;
   const isPopupOpen = false;
   return (

@@ -1,45 +1,37 @@
 import React from "react";
 import {Link} from "react-router-dom";
-// import {AppDispatch} from "store";
-// import {useDispatch, useSelector} from "react-redux";
-// import {
-//   getUserAuth,
-//   resetUserRequest,
-//   resetRegRequest,
-// } from "store/modules/auth/actions";
-// import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
-// import {isShoppingCartUse, resetUserShopCart} from "store/modules/cart/actions";
-// import {selectCatalogStatus} from "store/modules/catalog/selectors";
 
 import Arrow from "assets/icons/backArrow.svg";
 import ShopCart from "assets/icons/cart-shopping-solid.svg";
+import {
+  getUserAuth,
+  resetRegRequest,
+  resetUserRequest,
+} from "store/modules/auth/actions";
+import {useAppDispatch} from "store";
+import {useSelector} from "react-redux";
+import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
 
 import Cookies from "js-cookie";
 import {APP_AUTH_ROUTES, APP_GENERAL_ROUTES} from "utils/routes";
 import cn from "classnames";
-
 import classes from "./appHeader.module.css";
 
-const isAuth = false;
 const AppHeader: React.FC = () => {
-  // const dispatch = useDispatch<AppDispatch>();
-  // const isAuth = useSelector(isUserAuth);
-  // const userInfo = useSelector(selectUserData);
+  const dispatch = useAppDispatch();
+  const isAuth = useSelector(isUserAuth);
+  const userInfo = useSelector(selectUserData);
   // const isCatalogOpen = useSelector(selectCatalogStatus);
-  // const userBonuses = userInfo?.bonuses || 0;
-  const userBonuses = 0;
-  // const currentUser = userInfo?.name || "-";
-  const currentUser = "-";
-
-  // const userCartCount=userInfo?.userCart?.length||0
-  const userCartCount = 0;
+  const userBonuses = userInfo?.bonuses || 0;
+  const currentUser = userInfo?.name || "-";
+  const userCartCount = userInfo?.userCart?.length || 0;
 
   const onLogOut = () => {
-    // dispatch(resetUserRequest());
-    // dispatch(resetRegRequest());
+    dispatch(resetUserRequest());
+    dispatch(resetRegRequest());
     // dispatch(resetUserShopCart());
     Cookies.remove("perAcTkn");
-    // dispatch(getUserAuth(false));
+    dispatch(getUserAuth(false));
   };
   const onOpenShopCart = () => {
     console.log("open cart");
@@ -88,7 +80,8 @@ const AppHeader: React.FC = () => {
             <i className={classes.bonusesValue}>{userBonuses}</i>
           </div>
           <Link
-            to={APP_AUTH_ROUTES.personPage.link}
+            // to={APP_AUTH_ROUTES.personPage.link}
+            to={"/acc"}
             className={classes.userLink}
           >
             <span className={classes.currentUser}>&nbsp;{currentUser}</span>
