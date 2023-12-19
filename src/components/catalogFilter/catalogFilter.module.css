@@ -1,0 +1,147 @@
+.menu3dContainer {
+    width: 350px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 5px 25px var(--extra_app_color));
+    padding-left: 50px;
+    position: sticky;
+    top: 120px;
+  }
+  .menuBlock {
+    overflow: auto;
+    height: 400px;
+    width: 300px;
+    position: relative;
+    transform: skewY(-15deg);
+    margin-top: 100px;
+    padding: 50px 0;
+    filter: drop-shadow(20px 10px 10px black) ;
+    display: flex;
+    flex-direction: column;
+  }
+  .menuBlock::-webkit-scrollbar {
+    width: 10px;
+
+  }
+  .menuBlock::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .menuBlock::-webkit-scrollbar-thumb {
+    background-color: var(--main_app_color);
+    border-radius: 5px;
+  }
+  
+  .menuItem {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    width: 160px;
+    height: 50px;
+    background: linear-gradient(30deg, var(--last_menu_color), var(--medium_menu_color), var(--last_menu_color));
+    transition: 0.5s;
+    margin-bottom: 10px;
+    margin-left: 42px;
+    cursor: pointer;
+    border: 1px solid var(--medium_menu_color);
+  }
+  .menuItem::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -33px;
+    width: 31px;
+    height: 100%;
+    background: linear-gradient(60deg, var(--last_menu_color), var(--medium_menu_color), var(--last_menu_color));
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+    border: 1px solid var(--medium_menu_color);
+  }
+  .menuItem::after {
+    content: "";
+    position: absolute;
+    top: -33px;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(-60deg, var(--last_menu_color), var(--medium_menu_color), var(--last_menu_color));
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+    border: 1px solid var(--medium_menu_color);
+  }
+  .menuItem:hover {
+    transform: translateX(50px);
+  }
+  .activeMenuItem{
+    transform: translateX(50px);
+    background: linear-gradient(var(--main_app_color), var(--main_app_color));
+    border: 0.5px solid black;
+    opacity: 0.8;
+  }
+  .menuItem:hover,
+  .menuItem:hover::before,
+  .menuItem:hover::after {
+    background: linear-gradient(var(--main_app_color), var(--main_app_color));
+    border: 0.5px solid black;
+    opacity: 0.8;
+  }
+  .menuItem:active,
+  .menuItem:active::before,
+  .menuItem:active::after {
+    background: linear-gradient(var(--light_app_color), var(--light_app_color));
+  }
+  .itemLink {
+    width: 100%;
+    height: 100%;
+    text-shadow: 0 0 5px white;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+  .menuItem:last-child::after {
+    box-shadow: -100px 100px 10px black;
+  }
+  @media screen and (max-width:1536px){
+    .menu3dContainer {
+      width: 300px;
+      height: 300px;
+    }
+    .menuBlock {
+      overflow: auto;
+      height: 400px;
+      width: 300px;
+      position: relative;
+      transform: skewY(-15deg);
+      margin-top: 100px;
+      padding: 50px 0;
+      filter: drop-shadow(20px 10px 10px black) ;
+      display: flex;
+      flex-direction: column;
+    }
+    .menuItem {
+      width: 135px;
+      height: 40px;
+      margin-left: 22px;
+    }
+    .menuItem::before {
+      top: 0;
+      left: -22px;
+      width: 20px;
+    }
+    .menuItem::after {
+      top: -22px;
+      right: 0;
+      height: 20px;
+    }
+    .itemLink {
+      font-size: 12px;
+    }
+  }
+  

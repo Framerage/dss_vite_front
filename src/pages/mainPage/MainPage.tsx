@@ -1,7 +1,7 @@
 import React from "react";
 import SvgFrame from "assets/images/svgFrame.svg";
-// import PreviewCard from "components/previewCard/PreviewCard";
-// import PreviewMainBlock from "components/previewMainBlock/PreviewMainBlock";
+import PreviewCard from "components/previewCard";
+import PreviewMainBlock from "components/previewMainBlock";
 
 import PrintHisImg1 from "assets/images/printerHistory/print1.jpg";
 import PrintHisImg3 from "assets/images/printerHistory/print3.jpg";
@@ -65,7 +65,7 @@ const MainPage: React.FC = () => {
     <div className={classes.mainContainer}>
       <div className={classes.mainContent}>
         <div className={classes.appPreview}>
-          {/* {previewCards.map(card => (
+          {previewCards.map(card => (
             <PreviewCard
               key={card.text}
               imgUrl={card.img}
@@ -73,10 +73,10 @@ const MainPage: React.FC = () => {
               isCircle={card.isCircle}
               link={card.link}
             />
-          ))} */}
+          ))}
         </div>
         <div className={classes.appPreviewBlocks}>
-          {/* {previewContent.map(block => (
+          {previewContent.map(block => (
             <PreviewMainBlock
               text={block.text}
               id={block.id}
@@ -84,7 +84,7 @@ const MainPage: React.FC = () => {
               images={block.images}
               reverse={block.reverse}
             />
-          ))} */}
+          ))}
         </div>
 
         <div

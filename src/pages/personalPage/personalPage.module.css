@@ -1,0 +1,100 @@
+.personalPageContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+.persPageMenu{
+    max-width: 100%;
+    max-height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 3px;
+}
+.menuItems{
+    width: 100%;
+    max-height: 90px;
+    min-height: 30px;
+    display: flex;
+    align-items: flex-end;
+    overflow-x: auto;
+}
+.menuItem{
+    max-width: 150px;
+    max-height: 50px;
+    min-height: 25px;
+    background:linear-gradient(30deg,var(--last_menu_color),var(--medium_menu_color),var(--last_menu_color)) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0 ;
+    border: 4px groove var(--medium_menu_color);
+    border-bottom: none;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+    text-shadow: 0 0 5px white;
+    padding:0 5px;
+}
+.menuItem:hover{
+    transform: scale(1.03);
+}
+.activeItem{
+    max-width: 160px;
+    background:linear-gradient(30deg,var(--dark_app_color),var(--main_app_color),var(--dark_app_color)) ;
+    pointer-events: none;
+}
+.arrowItem{
+    width: 40px;
+    padding: 5px;
+}
+.sortArrow{
+    transition: 0.5s;
+    transform: rotate(90deg);
+}
+.sortArrowUp{
+    transform: rotate(-90deg);
+}
+.selectMenuItem{
+    max-width: 200px;
+    padding: 3px 5px;
+    background:linear-gradient(30deg,var(--last_menu_color),var(--medium_menu_color),var(--last_menu_color)) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0 ;
+    border: 4px groove var(--medium_menu_color);
+    border-bottom: none;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    text-shadow: 0 0 5px white;
+}
+.selectMenuItem>option{
+    background-color: var(--main_app_color);
+    font-size: 16px;
+    color: white;
+    text-shadow: 0 0 5px black;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+.previewContainer{
+    width: 100%;
+    background-color: var(--main_app_color);
+    border: 4px groove var(--medium_menu_color);
+    border-radius: 0 0 10px 10px;
+}
+.testContainer{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}

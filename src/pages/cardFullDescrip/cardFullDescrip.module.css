@@ -1,0 +1,88 @@
+.fullDescripContainer{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.cardContent{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.contentSlider{
+    width: 100%;
+    padding: 10px;
+}
+.contentItems{
+    padding-left: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contentItem{
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    text-shadow: 0 0 5px aqua,0 0 10px white, 0 0 15px aqua;
+    margin:60px 0;
+}
+.deleteBtn{
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.deleteBtn:active{
+transform: scale(0.9);
+}
+.lowerSize{
+    font-size: 24px;
+}
+.cardExtraContent{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+.extraContItem{
+    width: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    color: black;
+    text-shadow: 0 0 5px aqua,0 0 10px white, 0 0 15px aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardLike{
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.cardLike:hover{
+    filter: drop-shadow(0 0 10px red);
+}
+.cardFullDescrip{
+    width: 100%;
+    min-height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: lightgray;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 0 15px black, 0 5px 10px black;
+}
+.errorInfo{
+    width:100%;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin: 50px 0;
+}

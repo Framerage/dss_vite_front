@@ -1,0 +1,276 @@
+.cardCreatingContainer{
+    width: 100%;
+    display: flex;
+    padding: 32px;
+}
+.firstSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.firstSectPreview{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 32px;
+    margin: 0 auto;
+}
+.imageWindow{
+    width: 700px;
+    height: 400px;
+    margin-left: 16px;
+    border: 5px groove var(--main_app_color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(185deg,#ffc974,aqua 80%,green 99%);
+}
+.previewImg{
+    max-width: 700px;
+    min-width: 500px;
+    min-height: 250px;
+    max-height: 450px;
+    border-radius: 10px;
+    border: 5px groove var(--main_app_color);
+}
+.previewAddBlock{
+    width: 350px;
+    max-height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.addBtns{
+    width: 100%;
+    display: flex;
+}
+.errAddedText{
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+    text-shadow: 0 0 5px black;
+    margin-left: 16px;
+}
+.previewAddFile{
+    width: 150px;
+    height: 35px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background: linear-gradient(30deg,black,lightgrey,black);
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+}
+.previewAddFile:hover{
+    background: linear-gradient(grey,grey);
+}
+.previewFilesList{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.previewFileName{
+    width: 90%;
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space: pre-wrap;
+}
+.previewFileName:hover{
+    color: aquamarine;
+    text-shadow: 0 0 5px black;
+}
+.choosedFile{
+    color: aquamarine;
+    text-shadow: 0 0 5px black;
+}
+.previewRemoveBtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: lightgrey;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.previewRemoveBtn:hover{
+    background-color: var(--dark_app_color);
+    color: white;
+}
+.firstSectBotmBlock{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px;
+    font-size: 26px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+.firstSectArea{
+    max-width: 1050px;
+    min-width: 600px;
+    min-height: 300px;
+    max-height: 350px;
+    margin-top: 16px;
+    border-radius: 10px;
+    border: 6px groove black;
+    background: linear-gradient(30deg,black,lightgrey,black);
+    color: black;
+    text-shadow: 0 0 5px white;
+    font-size: 20px;
+    padding: 5px;
+}
+.secondSection{
+    display: flex;
+    flex-direction: column;
+}
+.secondSectItem{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    font-size: 22px;
+    color:black;
+    font-weight: 600;
+    padding-right: 25px;
+    margin: 20px 0;
+}
+.secondSectInput{
+    width: 350px;
+    height: 35px;
+    padding: 5px;
+    color: black;
+    text-shadow: 0 0px 5px white;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: linear-gradient(30deg,black,lightgrey,black);
+    font-size: 18px;
+    font-weight: 600;
+}
+.secondSectArea{
+    min-width: 350px;
+    max-width: 350px;
+    max-height: 150px;
+    min-height: 100px;
+}
+.selectOption{
+    background-color: var(--dark_app_color);
+    font-size: 20px;
+}
+.submitBtn{
+    width: 250px;
+    height: 35px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    background: linear-gradient(30deg,black,lightgrey,black);
+    font-size: 22px;
+    font-weight: 600;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.submitBtn:hover{
+    background: linear-gradient(30deg,darkgrey,white,darkgrey);
+    border-radius: 15px;
+}
+.errorReqText{
+    width: 100%;
+    font-size: 22px;
+    font-weight: 600;
+    color:red;
+    text-shadow: 0 5px 5px black;
+    text-align: center;
+}
+.successReqText{
+    color:greenyellow
+}
+@media screen and (max-width:1536px){
+    .imageWindow{
+        width: 450px;
+        height: 270px;
+        padding: 5px;
+    }
+    .previewImg{
+        max-width: 550px;
+        max-height: 220px;
+        min-width: 300px;
+        min-height: 150px;
+    }
+    .previewAddBlock{
+        width: 250px;
+    max-height: 270px;
+    }
+    .errAddedText{
+        font-size: 14px;
+    }
+    .previewAddFile{
+        width: 95px;
+        height: 25px;
+        font-size: 14px;
+        padding: 5px;
+    }
+    .previewFileName{
+        font-size: 14px;
+        white-space: normal;
+    }
+    .previewRemoveBtn{
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+    }
+    .firstSectBotmBlock{
+        font-size: 18px;
+    }
+    .firstSectArea{
+        max-width: 715px;
+        min-width: 300px;
+        min-height: 200px;
+        max-height: 250px;
+        font-size: 16px;
+    }
+    .secondSectItem{
+        font-size: 16px;
+        padding-right: 0px;
+    }
+    .secondSectInput{
+        width: 200px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .secondSectArea{
+        min-width: 200px;
+        max-width: 200px;
+    }
+    .selectOption{
+        font-size: 14px;
+    }
+    .submitBtn{
+        width: 150px;
+        height: 30px;
+        font-size: 16px;
+    }
+    .errorReqText{
+        font-size: 16px;
+    }
+
+}

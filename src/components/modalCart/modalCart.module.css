@@ -1,0 +1,103 @@
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    width: 100%;
+    min-height: 100vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out,visibility 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  .shopCart {
+    position: absolute;
+    width: 420px;
+    min-height: 100vh;
+    right: 0;
+    background: #38b4b4;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .overlayVisible {
+    visibility: visible;
+    opacity: 1;
+        &>.shopCart{
+    transform: translateX(0);
+    }
+  }
+  .shopCartTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+  .shopCartCloseBtn{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+  }
+  .shopCartCloseBtn:hover {
+    opacity: 1;
+  }
+  .shopCartItems {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .items {
+    flex: 1;
+    overflow: auto;
+    margin-bottom: 40px;
+    padding: 0 10px;
+    border-radius: 10px;
+  }
+  .totalPrice{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    text-shadow: 0 0 5px white;
+    margin: 10px 0;
+  }
+  .createOrderBtn {
+    text-decoration: none;
+    width: 200px;
+    height: 35px;
+    background: yellowgreen;
+    border-radius: 18px;
+    border: 0;
+    color: black;
+    font-size: 16px;
+    text-shadow: 0 0 5px white;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .createOrderBtn:hover{
+    background: #6f9623;
+    color: white;
+    text-shadow: 0 0 5px black;
+  } 
+   .emptyCart{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: black;
+  }

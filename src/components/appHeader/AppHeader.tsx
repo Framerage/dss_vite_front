@@ -14,6 +14,9 @@ import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
 
 import Cookies from "js-cookie";
 import {APP_AUTH_ROUTES, APP_GENERAL_ROUTES} from "utils/routes";
+
+import {selectCatalogStatus} from "store/modules/catalog/selectors";
+import {isShoppingCartUse, resetUserShopCart} from "store/modules/cart/actions";
 import cn from "classnames";
 import classes from "./appHeader.module.css";
 
@@ -21,7 +24,7 @@ const AppHeader: React.FC = () => {
   const dispatch = useAppDispatch();
   const isAuth = useSelector(isUserAuth);
   const userInfo = useSelector(selectUserData);
-  // const isCatalogOpen = useSelector(selectCatalogStatus);
+  const isCatalogOpen = useSelector(selectCatalogStatus);
   const userBonuses = userInfo?.bonuses || 0;
   const currentUser = userInfo?.name || "-";
   const userCartCount = userInfo?.userCart?.length || 0;
@@ -29,15 +32,13 @@ const AppHeader: React.FC = () => {
   const onLogOut = () => {
     dispatch(resetUserRequest());
     dispatch(resetRegRequest());
-    // dispatch(resetUserShopCart());
+    dispatch(resetUserShopCart());
     Cookies.remove("perAcTkn");
     dispatch(getUserAuth(false));
   };
   const onOpenShopCart = () => {
-    console.log("open cart");
-    // dispatch(isShoppingCartUse(true))
+    dispatch(isShoppingCartUse(true));
   };
-  const isCatalogOpen = false;
   return (
     <header
       className={cn(classes.headerContainer, {
@@ -80,8 +81,7 @@ const AppHeader: React.FC = () => {
             <i className={classes.bonusesValue}>{userBonuses}</i>
           </div>
           <Link
-            // to={APP_AUTH_ROUTES.personPage.link}
-            to={"/acc"}
+            to={APP_AUTH_ROUTES.personPage.link}
             className={classes.userLink}
           >
             <span className={classes.currentUser}>&nbsp;{currentUser}</span>
@@ -103,8 +103,7 @@ const AppHeader: React.FC = () => {
             Sign in
           </Link>
           <Link
-            // to={APP_GENERAL_ROUTES.registration.link}
-            to={"/registartion-link"}
+            to={APP_GENERAL_ROUTES.registration.link}
             className={classes.headerNavItem}
           >
             Sign up

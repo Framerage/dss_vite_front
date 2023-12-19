@@ -1,0 +1,115 @@
+.cardContainer{
+    min-width: 400px;
+    width: 100%;
+    max-width: 720px;
+    height: 300px;
+    border:6px groove var(--main_app_color);
+    border-radius: 15px;
+    background-color: var(--light_app_color);
+    padding: 8px;
+    margin: 0 16px 16px 0;
+    display: flex;
+    transition: 0.2s;
+}
+.cardPreview{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.extraCardInfo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.extraInfoText{
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 5px 5px black;
+    margin: 0 35px;
+    display: flex;
+    align-items: center;
+}
+.cardLike{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    padding: 2px;
+    cursor: pointer;
+    filter:drop-shadow(0 0 10px red);
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardInfo{
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: black;
+    text-shadow: 0 0 5px white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 5px;
+    overflow-y: auto;
+
+}
+.infoCardTitle{
+    text-decoration: none;
+    color: black;
+    text-shadow: 0 0 5px white;
+    width: 100%;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+    white-space:pre-wrap
+}
+.infoCardTitle:hover{
+    text-shadow: 0 5px 5px aquamarine;
+}
+.infoCardTheme{
+    font-size: 22px;
+}
+.infoCardDescrip{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+    overflow: hidden;
+    word-wrap: break-word;
+    margin: 5px 0;
+    padding: 0 5px;
+}
+.descripText{
+    font-weight: 400;
+}
+.addBtnContainer{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2px;
+}
+.addBtn{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.addBtn:hover{
+    transform: scale(1.1);
+}
+.addBtn:active{
+    transform: scale(0.95);
+}
+

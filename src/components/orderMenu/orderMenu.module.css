@@ -1,0 +1,108 @@
+.navContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width:1536px){
+    .navContainer {
+      transform: scale(0.9);
+    }
+  }
+  @media screen and (max-width:1152px){
+    .navContainer {
+      transform: scale(0.7);
+    }
+  }
+  /*добавить адаптив для разной ширины с учетом масштаба, отступа от верха и отступа слева */
+  .menuToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 160px;
+    z-index: 10000;
+    cursor: pointer;
+    transition: 0.5s;
+    transition: transform 1.5s;
+    border-radius: 50%;
+  }
+  .menuToggleText{
+    width: 70px;
+    position: absolute;
+    font-size: 24px;
+    color: black;
+    text-align: center;
+    transition: 0.5s;
+  }
+  .menuToggle:hover {
+    filter: drop-shadow(0 5px 10px var(--light_app_color));
+  }
+  .toggleImage {
+    animation: pulse 2s alternate-reverse infinite;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .activeToggle {
+    transform: rotate(315deg);
+  }
+  .menuItem {
+    position: absolute;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: rgba(173, 216, 230, 0.226);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    transform-origin: 260px;
+    transition: 1s;
+    opacity: 0;
+  }
+
+  .activeMenu {
+    z-index: 1;
+    opacity: 1;
+  }
+  .itemText{
+    width: max-content;
+    text-decoration: none;
+    color: var(--exclusive_app_color);
+    text-shadow: 0 5px 10px black;
+    font-size: 30px;
+    font-weight: 600;
+    position: absolute;
+    z-index: 10;
+  }
+  .isOrderDisabled{
+    height: max-content;
+    padding: 40px 5px;
+    font-size: 24px;
+    font-weight: 400;
+    color: darkred;
+    background-color: white;
+    opacity: 0.8;
+  }
+  .itemImg{
+    border: 6px groove var(--main_app_color);
+    border-radius: 10px;
+    transition: 0.2s;
+  }
+  .menuItem:hover>.itemImg {
+    border-color: aquamarine;
+  }
+  .disabledItem{
+    pointer-events: none;
+  }
+  

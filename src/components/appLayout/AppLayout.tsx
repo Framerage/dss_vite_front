@@ -8,8 +8,8 @@ import Cookies from "js-cookie";
 import AppMenu from "components/appMenu";
 import AppFooter from "components/appFooter";
 import AppHeader from "components/appHeader";
-// import AppPopup from "components/AppPopup";
-// import ModalCart from "components/modalCart";
+import AppPopup from "components/AppPopup";
+import ModalCart from "components/modalCart";
 
 import ErrorPage from "pages/errorPage";
 import LoginPage from "pages/loginPage";
@@ -19,6 +19,8 @@ import {useSelector} from "react-redux";
 import {isUserAuth, selectUserData} from "store/modules/auth/selectors";
 import {getUserAuth, resetUserRequest} from "store/modules/auth/actions";
 import {fetchUserInfo} from "store/modules/auth/async-actions";
+import {isShopCartUse} from "store/modules/cart/selectors";
+import {selectPopupImage} from "store/modules/popup/selectors";
 import classes from "./appLayout.module.css";
 
 const AppLayout: React.FC = () => {
@@ -32,37 +34,31 @@ const AppLayout: React.FC = () => {
       {
         title: "Каталог",
         link: isAuth
-          ? // ? APP_AUTH_ROUTES.catalog.link
-            "/catalog"
-          : // : APP_GENERAL_ROUTES.catalog.link,
-            "/catalog",
+          ? APP_AUTH_ROUTES.catalog.link
+          : APP_GENERAL_ROUTES.catalog.link,
       },
       {
-        title: "Желаемый заказ",
+        title: "Свой дизайн заказа",
         // link: APP_AUTH_ROUTES.customOrder.link,
         link: "own-order",
       },
       {
         title: "О нас",
         link: isAuth
-          ? // ? APP_AUTH_ROUTES.about.link
-            "/about"
-          : // : APP_GENERAL_ROUTES.about.link,
-            "/about",
+          ? APP_AUTH_ROUTES.about.link
+          : APP_GENERAL_ROUTES.about.link,
       },
       {
         title: "Контакты",
         link: isAuth
-          ? // ? APP_AUTH_ROUTES.contacts.link
-            "/contacts"
-          : // : APP_GENERAL_ROUTES.contacts.link,
-            "/contacts",
+          ? APP_AUTH_ROUTES.contacts.link
+          : APP_GENERAL_ROUTES.contacts.link,
       },
     ];
   }, [isAuth]);
 
-  // const isCartOpened = useSelector(isShopCartUse);
-  // const isPopupOpen = useSelector(selectPopupImage);
+  const isCartOpened = useSelector(isShopCartUse);
+  const isPopupOpen = useSelector(selectPopupImage);
 
   // TODO: настроить счетчик заказов
   // TODO: добавить сохранение БД в файлы на серве (резервн сохранение данных)
@@ -104,8 +100,6 @@ const AppLayout: React.FC = () => {
     }
   }, [userData, accTkn, isAuth]);
 
-  const isCartOpened = false;
-  const isPopupOpen = false;
   return (
     <div
       className={classes.appWrapper}
@@ -114,8 +108,8 @@ const AppLayout: React.FC = () => {
         overflow: isCartOpened || !!isPopupOpen ? "hidden" : "inherit",
       }}
     >
-      {/* <AppPopup /> */}
-      {/* <ModalCart /> */}
+      <AppPopup />
+      <ModalCart />
       <AppHeader />
       <main className={classes.mainContainer}>
         {isAuth ? (
