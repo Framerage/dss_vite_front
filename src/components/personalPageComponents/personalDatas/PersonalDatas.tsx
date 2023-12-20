@@ -1,9 +1,12 @@
 import React from "react";
-import upFirstLetter from "helpers/upFirstLetter";
 import {useSelector} from "react-redux";
 import {selectUserData} from "store/modules/auth/selectors";
 import classes from "./personaldata.module.css";
 
+const upFirstLetter = (text: string) => {
+  const formatText = text.toLowerCase();
+  return formatText[0].toUpperCase() + formatText.slice(1, formatText.length);
+};
 const PersonalDatas: React.FC = () => {
   const userInfo = useSelector(selectUserData);
   if (!userInfo || (userInfo && !userInfo.success)) {

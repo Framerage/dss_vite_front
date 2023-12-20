@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-// import AllOrders from "components/personalPageComponents/allOrders";
-// import PersonalDatas from "components/personalPageComponents/personalDatas";
+import AllOrders from "components/personalPageComponents/allOrders";
+import PersonalDatas from "components/personalPageComponents/personalDatas";
 import ArrowIcon from "assets/icons/arrow.svg";
 import {AppDispatch} from "store";
 import {useDispatch, useSelector} from "react-redux";
@@ -17,22 +17,19 @@ const menuItems = [
   {
     name: "persData",
     title: "Мои данные",
-    // component: <PersonalDatas />,
-    component: null,
+    component: <PersonalDatas />,
     role: ["user", "admin"],
   },
   {
     name: "persOrders",
     title: "Мои заказы",
-    // component: <AllOrders markRole="user" />,
-    component: null,
+    component: <AllOrders markRole="user" />,
     role: ["user", "admin"],
   },
   {
     name: "adminOrders",
     title: "Все заказы",
-    // component: <AllOrders markRole="admin" />,
-    component: null,
+    component: <AllOrders markRole="admin" />,
     role: "admin",
   },
   {name: "statistic", title: "Статистика", component: null, role: "admin"},

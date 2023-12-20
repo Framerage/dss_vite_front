@@ -39,8 +39,7 @@ const AppLayout: React.FC = () => {
       },
       {
         title: "Свой дизайн заказа",
-        // link: APP_AUTH_ROUTES.customOrder.link,
-        link: "own-order",
+        link: APP_AUTH_ROUTES.customOrder.link,
       },
       {
         title: "О нас",

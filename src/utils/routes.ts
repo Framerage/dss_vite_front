@@ -2,6 +2,7 @@ import AboutPage from "pages/aboutPage";
 import CardFullDescrip from "pages/cardFullDescrip";
 import Catalog from "pages/catalog";
 import ContactsPage from "pages/contactsPage";
+import CreateIndivOrder from "pages/createIndivOrder/CreateIndivOrder";
 import CreatingCard from "pages/creatingCard";
 import LoginPage from "pages/loginPage";
 import MainPage from "pages/mainPage";
@@ -15,6 +16,15 @@ interface RoutesType {
 }
 export const FOR_GH_PAGES = "";
 // export const FOR_GH_PAGES = "/dss_react_frontend";
+export const ORDERS_ROUTES = {
+  printVol: "/3d-printers",
+  laserEngr: "/laser-engraving",
+  furniture: "/furniture",
+  reliefPic: "/bas-relief-picture",
+  plywood: "/plywood-frames",
+  neon: "/neon-decor",
+};
+
 export const APP_GENERAL_ROUTES: RoutesType = {
   main: {link: `${FOR_GH_PAGES}/`, component: MainPage, index: true},
   catalog: {link: `${FOR_GH_PAGES}/catalog`, component: Catalog},
@@ -40,21 +50,16 @@ export const APP_AUTH_ROUTES: RoutesType = {
   creatingCard: {link: `${FOR_GH_PAGES}/create-card`, component: CreatingCard},
   contacts: {link: `${FOR_GH_PAGES}/contacts`, component: ContactsPage},
   about: {link: `${FOR_GH_PAGES}/about`, component: AboutPage},
-  // customOrder: {
-  //   link: FOR_GH_PAGES + "/create-own-decor",
-  //   component: CreateOrder,
-  // },
+  customOrder: {
+    link: `${FOR_GH_PAGES}/create-indiv-order`,
+    component: CreateIndivOrder,
+  },
+  customFurnitureOrder: {
+    link: `${FOR_GH_PAGES}/create-indiv-order${ORDERS_ROUTES.furniture}`,
+    component: null,
+  },
   order: {link: `${FOR_GH_PAGES}/order`, component: OrderPage},
   login: {link: `${FOR_GH_PAGES}/auth/login`, component: LoginPage},
   personPage: {link: `${FOR_GH_PAGES}/my-account`, component: PersonalPage},
 };
 // "homepage": "https://framerage.github.io/dss_react_frontend",
-
-export const ORDERS_ROUTES = {
-  printVol: "/3d-printers",
-  laserEngr: "/laser-engraving",
-  furniture: "/furniture",
-  reliefPic: "/bas-relief-picture",
-  plywood: "/plywood-frames",
-  neon: "/neon-decor",
-};
