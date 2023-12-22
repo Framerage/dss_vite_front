@@ -124,7 +124,7 @@ const CardFullDescrip: React.FC = () => {
   const onDeleteCard = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     const check = window.prompt("Are you sure want to delete? Enter pass");
-    if (check === import.meta.env.REACT_APP_ADM_PSS && cardDescrip && accS) {
+    if (check === import.meta.env.VITE_ADM_PSS && cardDescrip && accS) {
       dispatch(removeCardFromCatalog({id: cardDescrip._id, auth: accS}));
       return;
     }

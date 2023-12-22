@@ -4,6 +4,7 @@ import Catalog from "pages/catalog";
 import ContactsPage from "pages/contactsPage";
 import CreateIndivOrder from "pages/createIndivOrder/CreateIndivOrder";
 import CreatingCard from "pages/creatingCard";
+import IndivOrderPage from "pages/indivOrderPage";
 import LoginPage from "pages/loginPage";
 import MainPage from "pages/mainPage";
 import OrderPage from "pages/orderPage";
@@ -56,7 +57,7 @@ export const APP_AUTH_ROUTES: RoutesType = {
   },
   customFurnitureOrder: {
     link: `${FOR_GH_PAGES}/create-indiv-order${ORDERS_ROUTES.furniture}`,
-    component: null,
+    component: IndivOrderPage,
   },
   order: {link: `${FOR_GH_PAGES}/order`, component: OrderPage},
   login: {link: `${FOR_GH_PAGES}/auth/login`, component: LoginPage},

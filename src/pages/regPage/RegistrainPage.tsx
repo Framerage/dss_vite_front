@@ -37,7 +37,7 @@ const RegistrationPage: React.FC = () => {
   const {handleSubmit, register, formState} = useForm<RegFormData>({
     mode: "onSubmit",
     reValidateMode: "onSubmit",
-    shouldFocusError: false,
+    shouldFocusError: true,
   });
 
   const namePatternError = formState.errors?.name?.type === "minLength";

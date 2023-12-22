@@ -145,6 +145,9 @@ const Catalog: React.FC = React.memo(() => {
     },
     [userInfo, accS],
   );
+  if (cardsIsLoading) {
+    return <PointLoader scale={0.2} />;
+  }
   return (
     <div className={classes.catalogContainer}>
       <CatalogFilter
@@ -164,34 +167,30 @@ const Catalog: React.FC = React.memo(() => {
           )}
         </div>
         <div className={classes.catalogCards}>
-          {!cardsIsLoading ? (
-            filtredCardsBySearch && filtredCardsBySearch.length ? (
-              filtredCardsBySearch.map(card => (
-                <CatalogCard
-                  key={card._id}
-                  card={card}
-                  isCardAdded={
-                    userInfo && userInfo.userCart?.length > 0
-                      ? userInfo.userCart.includes(card._id)
-                      : false
-                  }
-                  onAddCardToCart={addCardToShopCart}
-                  isAuthDone={!!(userInfo && userInfo.success)}
-                  isUserLikedCard={Boolean(
-                    userInfo &&
-                      userInfo.success &&
-                      userInfo.userLikes.includes(card._id),
-                  )}
-                  onLikeCard={onSendLike}
-                />
-              ))
-            ) : (
-              <div className={classes.warnText}>
-                {cardsError ? "Ошибка получения данных" : "Пусто"}
-              </div>
-            )
+          {filtredCardsBySearch && filtredCardsBySearch.length ? (
+            filtredCardsBySearch.map(card => (
+              <CatalogCard
+                key={card._id}
+                card={card}
+                isCardAdded={
+                  userInfo && userInfo.userCart?.length > 0
+                    ? userInfo.userCart.includes(card._id)
+                    : false
+                }
+                onAddCardToCart={addCardToShopCart}
+                isAuthDone={!!(userInfo && userInfo.success)}
+                isUserLikedCard={Boolean(
+                  userInfo &&
+                    userInfo.success &&
+                    userInfo.userLikes.includes(card._id),
+                )}
+                onLikeCard={onSendLike}
+              />
+            ))
           ) : (
-            <PointLoader scale={0.2} />
+            <div className={classes.warnText}>
+              {cardsError ? "Ошибка получения данных" : "Пусто"}
+            </div>
           )}
         </div>
       </div>
