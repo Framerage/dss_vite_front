@@ -16,7 +16,7 @@ interface RoutesType {
   [key: string]: {component: React.FC | null; link: string; index?: boolean};
 }
 export const FOR_GH_PAGES = "";
-// export const FOR_GH_PAGES = "/dss_react_frontend";
+// export const FOR_GH_PAGES = "/dss_vite_front";
 export const ORDERS_ROUTES = {
   printVol: "/3d-printers",
   laserEngr: "/laser-engraving",
