@@ -57,7 +57,7 @@ animation: scaled 1s ease-in-out;
     text-shadow: 0 0 5px black;
     padding: 0 10px;
 }
-.formItem>input{
+.inputFormItem{
     max-width: 100%;
     margin: 0 10px;
     border: 2px solid white;
