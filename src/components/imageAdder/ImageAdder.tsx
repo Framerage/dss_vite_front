@@ -12,12 +12,13 @@ interface ImageAdderProps {
 }
 const ImageAdder: React.FC<ImageAdderProps> = React.memo(
   ({images, changeImages}) => {
-    console.log("render image adder");
     const [choosedFileIndex, setChoosedFileIndex] = useState(0);
     const [fileSizeError, setFileSizeError] = useState(false);
+    const [imageRepeatErr, setImageRepeatErr] = useState(false);
 
     const createImgString = async (fileList: FileList | null) => {
       setFileSizeError(false);
+      setImageRepeatErr(false);
       if (!fileList) {
         return;
       }
@@ -31,6 +32,7 @@ const ImageAdder: React.FC<ImageAdderProps> = React.memo(
         fileName: body.name,
       });
       if (images.some(file => file.fileName === imgResult.fileName)) {
+        setImageRepeatErr(true);
         return;
       }
       changeImages([
@@ -73,6 +75,11 @@ const ImageAdder: React.FC<ImageAdderProps> = React.memo(
             />
             {fileSizeError && (
               <span className={classes.errAddedText}>File more than 10mb</span>
+            )}
+            {imageRepeatErr && (
+              <span className={classes.errAddedText}>
+                Файл с таким названием уже добавлен
+              </span>
             )}
           </div>
 

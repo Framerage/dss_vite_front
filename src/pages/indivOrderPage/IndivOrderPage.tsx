@@ -88,7 +88,7 @@ const IndivOrderPage: React.FC = () => {
     <div className={classes.indivOrderContainer}>
       <form
         onSubmit={handleSubmit(onCreateIndivOrder)}
-        style={{display: "flex", flexDirection: "column"}}
+        className={classes.orderForm}
       >
         <div>
           <div>
@@ -137,10 +137,7 @@ const IndivOrderPage: React.FC = () => {
           images={currentImgs}
           changeImages={(v: ImageType[]) => setValue("images", v)}
         />
-        <button
-          type="submit"
-          style={{maxWidth: "100px", borderRadius: "10px", margin: "10px"}}
-        >
+        <button type="submit" className={classes.completeBtn}>
           Отправить пожелания
         </button>
       </form>

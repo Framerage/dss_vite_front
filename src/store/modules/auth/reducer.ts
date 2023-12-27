@@ -5,6 +5,7 @@ import {
   UserRegistrationValidation,
   userRegistration,
 } from "typings/auths";
+import {Prettify} from "typings/generalTypes";
 import {
   UserRegistrationFx,
   editUserExtraInfoFx,
@@ -15,7 +16,7 @@ import {getUserAuth, resetRegRequest, resetUserRequest} from "./actions";
 
 export interface AuthInitialState {
   userInfo: {
-    data: UserAuthorisation | null;
+    data: Prettify<UserAuthorisation> | null;
     isLoading: boolean;
     error: null | string;
   };

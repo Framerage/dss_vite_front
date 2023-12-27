@@ -4,7 +4,7 @@ import {useMemo} from "react";
  * @param obj массиив объектов, который нужно отфильтровать,
  * @param objKey ключ объекта,по которому нужно отфильтровать,
  * @param criterion - фильтрация объектов/списка по введенному тексту
- * @returns script version
+ * @returns возвращает отфильтрованный и мемоизированный массив объектов
  */
 
 export const useFiltredObj = <T>(

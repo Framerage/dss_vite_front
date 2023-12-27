@@ -1,7 +1,36 @@
 .indivOrderContainer{
+    /* width: 100%; */
+    /* margin-top: 75px; */
+
+
+    min-width:400px;
+    width: 100%;
+    max-width: 1200px;
+    /* max-height: 450px; */
+    margin: 0 auto;
+    border:6px groove var(--main_app_color);
+    background-color: var(--light_app_color);
+    border-radius: 15px;
+    margin-top: 60px;
+    overflow: auto;
+animation: scaled 1s ease-in-out;
+}
+.orderForm{
     width: 100%;
     border: 1px solid red;
-    margin-top: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+
+}
+@keyframes scaled {
+0% {
+  transform: scale(0);
+}
+100% {
+  transform: scale(1);
+}
 }
 .errorReqText{
     width: 100%;
@@ -13,4 +42,26 @@
 }
 .successReqText{
     color:greenyellow
+}
+
+
+.completeBtn{
+    width: 100px;
+    padding: 2px 5px;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 0 5px black;
+    color: white;
+    background:linear-gradient(30deg,black,var(--dark_app_color),black) ;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.completeBtn:hover{
+    background:linear-gradient(30deg,black,var(--light_app_color),black) ;
+}
+.completeBtn:active{
+    background-color: var(--dark_app_color);
+    transform: scale(0.95);
 }
