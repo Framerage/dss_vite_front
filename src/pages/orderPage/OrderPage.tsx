@@ -152,7 +152,12 @@ const OrderPage: React.FC = () => {
 
   const onSendOrder = useCallback(
     (data: OrderFormData) => {
-      const resultOrder = {...data, userCart: cartList, totalPrice};
+      const resultOrder = {
+        ...data,
+        userCart: cartList,
+        totalPrice,
+        orderType: "usual",
+      };
       accS &&
         dispatch(fetchToCreateOrderRequest({order: resultOrder, auth: accS}));
     },

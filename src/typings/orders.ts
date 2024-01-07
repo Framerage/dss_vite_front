@@ -7,6 +7,7 @@ export interface OrderCreatingRequest {
   city: string;
   userCart: ShopCartCardsForOrder[];
   totalPrice: number;
+  orderType: string;
 }
 export enum OrderStatuses {
   job = "в обработке",

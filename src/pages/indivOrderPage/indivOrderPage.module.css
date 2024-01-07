@@ -1,12 +1,7 @@
 .indivOrderContainer{
-    /* width: 100%; */
-    /* margin-top: 75px; */
-
-
     min-width:400px;
     width: 100%;
-    max-width: 1200px;
-    /* max-height: 450px; */
+    max-width: 1000px;
     margin: 0 auto;
     border:6px groove var(--main_app_color);
     background-color: var(--light_app_color);
@@ -17,12 +12,11 @@ animation: scaled 1s ease-in-out;
 }
 .orderForm{
     width: 100%;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 20px;
     padding: 20px;
-
 }
 @keyframes scaled {
 0% {
@@ -43,8 +37,45 @@ animation: scaled 1s ease-in-out;
 .successReqText{
     color:greenyellow
 }
-
-
+.formHeadWrapper{
+    width: 100%;
+    display: flex;
+}
+.formHeadColumn{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.formInputWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:red;
+    text-shadow: 0 2px 5px black;
+    font-size: 18px;
+}
+.formHeadInputItem{
+    max-width: 100%;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 0 0 5px black;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 10px;
+    background:linear-gradient(30deg,black,var(--dark_app_color),black) ;
+}
+.formOrderDescripSection{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.orderDescripArea{
+    min-width: 100%;
+    min-height: 200px;
+}
 .completeBtn{
     width: 100px;
     padding: 2px 5px;

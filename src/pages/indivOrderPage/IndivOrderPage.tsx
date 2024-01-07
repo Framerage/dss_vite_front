@@ -4,6 +4,7 @@ import {RegisterOptions, UseFormRegister, useForm} from "react-hook-form";
 import ImageAdder from "components/imageAdder";
 import {useSelector} from "react-redux";
 import {selectUserData} from "store/modules/auth/selectors";
+import cn from "classnames";
 import classes from "./indivOrderPage.module.css";
 
 type ImageType = {fileBody: string; fileName: string; id: number};
@@ -54,7 +55,7 @@ const IndivOrderFormItem: React.FC<IndivOrderFormItemProps> = ({
   );
 };
 const minDescripTextLength = 20;
-
+const requiredErrText = "Данное поле необходимо заполнить";
 const IndivOrderPage: React.FC = () => {
   const curUser = useSelector(selectUserData);
   const {register, handleSubmit, setValue, formState, watch} =
@@ -76,9 +77,14 @@ const IndivOrderPage: React.FC = () => {
   const orderDescripLittleTextError =
     formState.errors.orderDescrip?.type === "minLength";
 
+  const nameRequiredError = formState.errors.name?.type === "required";
+  const emailRequiredError = formState.errors.email?.type === "required";
+  const phoneNumRequiredError = formState.errors.phoneNum?.type === "required";
+
   const currentImgs = watch("images");
 
   const onCreateIndivOrder = (data: IndivOrderFormData) => {
+    // orderType:'custom'
     console.log(data, "form data");
   };
   const descripError = orderDescripRequiredError
@@ -90,48 +96,65 @@ const IndivOrderPage: React.FC = () => {
         onSubmit={handleSubmit(onCreateIndivOrder)}
         className={classes.orderForm}
       >
-        <div>
-          <div>
+        <div className={classes.formHeadWrapper}>
+          <div className={classes.formHeadColumn}>
             <IndivOrderFormItem
               itemName="name"
               defaultValue={curUser?.name}
               itemPlaceHolder="введите свой ник"
               register={register}
+              registerOprions={{required: true}}
+              parentStyle={classes.formInputWrapper}
+              childStyle={classes.formHeadInputItem}
+              errorText={nameRequiredError ? requiredErrText : ""}
             />
             <IndivOrderFormItem
               itemName="email"
               defaultValue={curUser?.email}
               itemPlaceHolder="введите свою почту"
               register={register}
+              registerOprions={{required: true}}
+              childStyle={classes.formHeadInputItem}
+              parentStyle={classes.formInputWrapper}
+              errorText={emailRequiredError ? requiredErrText : ""}
             />
           </div>
-          <div>
+          <div className={classes.formHeadColumn}>
             <IndivOrderFormItem
               itemName="phoneNum"
-              itemPlaceHolder="введите номер телефона"
+              itemPlaceHolder="+79991239977"
               register={register}
+              childStyle={classes.formHeadInputItem}
+              parentStyle={classes.formInputWrapper}
+              registerOprions={{required: true}}
+              errorText={phoneNumRequiredError ? requiredErrText : ""}
             />
             <IndivOrderFormItem
               itemName="city"
               itemPlaceHolder="введите свой город"
               register={register}
+              childStyle={classes.formHeadInputItem}
+              parentStyle={classes.formInputWrapper}
             />
           </div>
         </div>
-        <span>Описание заказа</span>
-        <textarea
-          {...register("orderDescrip", {
-            minLength: minDescripTextLength,
-            required: true,
-          })}
-          name="orderDescrip"
-          id="orderDescrip"
-        />
-        <span className={classes.errorReqText}>
-          {!!orderDescripRequiredError || !!orderDescripLittleTextError
-            ? descripError
-            : ""}
-        </span>
+        <div className={classes.formOrderDescripSection}>
+          <span>Описание заказа</span>
+          <textarea
+            {...register("orderDescrip", {
+              minLength: minDescripTextLength,
+              required: true,
+            })}
+            name="orderDescrip"
+            id="orderDescrip"
+            className={cn(classes.formHeadInputItem, classes.orderDescripArea)}
+          />
+          <span className={classes.errorReqText}>
+            {!!orderDescripRequiredError || !!orderDescripLittleTextError
+              ? descripError
+              : ""}
+          </span>
+        </div>
 
         <ImageAdder
           images={currentImgs}
