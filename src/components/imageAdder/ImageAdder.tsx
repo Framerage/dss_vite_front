@@ -17,6 +17,9 @@ const ImageAdder: React.FC<ImageAdderProps> = React.memo(
     const [imageRepeatErr, setImageRepeatErr] = useState(false);
 
     const createImgString = async (fileList: FileList | null) => {
+      if (images.length && images.length >= 6) {
+        return;
+      }
       setFileSizeError(false);
       setImageRepeatErr(false);
       if (!fileList) {
@@ -59,6 +62,10 @@ const ImageAdder: React.FC<ImageAdderProps> = React.memo(
     const onChoosedFile = (id: number) => setChoosedFileIndex(id);
     return (
       <div className={classes.imageAdderContainer}>
+        <div className={classes.imageAdderInfo}>
+          Количество картинок не должно быть больше <b>шести</b>. Пожалуйста,
+          уместите всю полезную информацию в этом количестве
+        </div>
         <div className={classes.previewAddBlock}>
           <div className={classes.addBtns}>
             <label htmlFor="addImgUrl" className={classes.previewAddFile}>

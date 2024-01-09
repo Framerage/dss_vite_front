@@ -70,6 +70,8 @@ export const orderReducer = createReducer<OrderRequestsState>(
       fetchToCreateOrderRequest.rejected,
       (state, {payload}: {payload: ErrorPayload}) => {
         if (!payload) {
+          state.orderCreating.isLoading = false;
+          state.orderCreating.error = "Ошибка с сервером";
           return;
         }
         state.orderCreating.data = payload;

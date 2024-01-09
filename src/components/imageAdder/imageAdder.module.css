@@ -1,6 +1,23 @@
 .imageAdderContainer{
     width: fit-content;
     display: flex;
+    gap: 10px;
+}
+.imageAdderInfo{
+    width: 100%;
+    max-width: 300px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 5px black;
+    padding: 10px;
+    text-align: center;
+    &>b{
+        text-transform: uppercase;
+        color: darkred;
+        text-shadow: 0 1px 2px darkgrey;
+        letter-spacing: 2px;
+    }
 }
 .imageWindow{
     width: 700px;

@@ -29,6 +29,9 @@ export interface OrderRequestResult {
   updatedAt: string;
   orderStatus: OrderStatuses;
   promo: string;
+  orderType: "usual" | "custom";
+  orderDescrip: string;
+  specImgsOrder: string[];
 }
 export interface Orders {
   orders: OrderRequestResult[];

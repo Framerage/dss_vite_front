@@ -22,6 +22,8 @@ import {useSortedObj} from "hooks/useSortedObj";
 import {SortTypes} from "typings/generalTypes";
 import AppSearcher from "components/appSearcher";
 import {useFiltredObj} from "hooks/useFilteredObj";
+import {setPopupImage} from "store/modules/popup/actions";
+import {setBase64Image} from "helpers/appHelpers";
 import OrderCard from "../orderCard";
 import classes from "./allOrders.module.css";
 
@@ -65,12 +67,15 @@ const AllOrders: React.FC<OrdersProps> = ({markRole}) => {
     }
   }, [markRole]);
 
+  const onChooseOrderImg = useCallback((img: string) => {
+    dispatch(setPopupImage(setBase64Image("", img)));
+  }, []);
   const onDeleteOrder = useCallback(
     (e: React.MouseEvent<HTMLElement>, orderId: string) => {
       e.stopPropagation();
       const check = window.prompt("Are you sure want to delete? Enter pass");
       if (
-        check === import.meta.env.REACT_APP_ADM_PSS &&
+        check === import.meta.env.VITE_ADM_PSS &&
         curUser &&
         sortedOrders.length &&
         accS
@@ -129,6 +134,7 @@ const AllOrders: React.FC<OrdersProps> = ({markRole}) => {
                 markRole={markRole}
                 onRemoveOrder={onDeleteOrder}
                 onSaveOrder={onSaveChangesByOrderCard}
+                onChooseOrderImg={onChooseOrderImg}
               />
             ))
           ) : (

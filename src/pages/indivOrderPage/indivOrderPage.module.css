@@ -8,6 +8,8 @@
     border-radius: 15px;
     margin-top: 60px;
     overflow: auto;
+    color: white;
+    text-shadow: 0 2px 5px black;
 animation: scaled 1s ease-in-out;
 }
 .orderForm{
@@ -77,8 +79,8 @@ animation: scaled 1s ease-in-out;
     min-height: 200px;
 }
 .completeBtn{
-    width: 100px;
-    padding: 2px 5px;
+    width: 120px;
+    padding:  5px;
     font-size: 16px;
     font-weight: 600;
     text-shadow: 0 0 5px black;
@@ -95,4 +97,21 @@ animation: scaled 1s ease-in-out;
 .completeBtn:active{
     background-color: var(--dark_app_color);
     transform: scale(0.95);
+}
+.successMessageBlock{
+    min-width:200px;
+    width: 100%;
+    max-width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    border:6px groove var(--main_app_color);
+    background-color: var(--light_app_color);
+    border-radius: 15px;
+    margin-top: 160px;
+    overflow: auto;
+    color: white;
+    text-shadow: 0 2px 5px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

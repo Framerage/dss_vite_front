@@ -1,16 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {RegisterOptions, UseFormRegister, useForm} from "react-hook-form";
+import Cookies from "js-cookie";
 
 import ImageAdder from "components/imageAdder";
 import {useSelector} from "react-redux";
 import {selectUserData} from "store/modules/auth/selectors";
 import cn from "classnames";
+import {useAppDispatch} from "store/index";
+import {fetchToCreateOrderRequest} from "store/modules/order/async-actions";
+import {
+  selectOrderCreating,
+  selectOrderCreatingError,
+  selectOrderCreatingIsLoading,
+} from "store/modules/order/selectors";
+import {resetOrderCreatingResult} from "store/modules/order/actions";
 import classes from "./indivOrderPage.module.css";
 
 type ImageType = {fileBody: string; fileName: string; id: number};
 interface IndivOrderFormData {
   orderDescrip: string | null;
-  images: ImageType[];
+  specImgsOrder: ImageType[];
   email: string;
   name: string;
   phoneNum: string;
@@ -57,7 +66,15 @@ const IndivOrderFormItem: React.FC<IndivOrderFormItemProps> = ({
 const minDescripTextLength = 20;
 const requiredErrText = "Данное поле необходимо заполнить";
 const IndivOrderPage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const accS = Cookies.get("perAcTkn");
   const curUser = useSelector(selectUserData);
+
+  const orderRequestResult = useSelector(selectOrderCreating);
+  const orderRequestResultIsLoading = useSelector(selectOrderCreatingIsLoading);
+  const orderRequestResultError = useSelector(selectOrderCreatingError);
+  const isOrderSuccess = !!orderRequestResult?.success;
+
   const {register, handleSubmit, setValue, formState, watch} =
     useForm<IndivOrderFormData>({
       mode: "onSubmit",
@@ -65,7 +82,7 @@ const IndivOrderPage: React.FC = () => {
       shouldFocusError: true,
       values: {
         orderDescrip: null,
-        images: [],
+        specImgsOrder: [],
         email: curUser?.email || "",
         name: curUser?.name || "",
         phoneNum: "",
@@ -81,15 +98,52 @@ const IndivOrderPage: React.FC = () => {
   const emailRequiredError = formState.errors.email?.type === "required";
   const phoneNumRequiredError = formState.errors.phoneNum?.type === "required";
 
-  const currentImgs = watch("images");
+  const currentImgs = watch("specImgsOrder");
+
+  useEffect(() => {
+    (isOrderSuccess || orderRequestResultError) &&
+      dispatch(resetOrderCreatingResult());
+    return () => {
+      dispatch(resetOrderCreatingResult());
+    };
+  }, []);
 
   const onCreateIndivOrder = (data: IndivOrderFormData) => {
-    // orderType:'custom'
-    console.log(data, "form data");
+    const images = currentImgs.map(file => file.fileBody);
+    const resultOrder = {
+      ...data,
+      userCart: [],
+      totalPrice: 0,
+      specImgsOrder: images,
+      orderType: "custom",
+    };
+    if (accS) {
+      dispatch(fetchToCreateOrderRequest({order: resultOrder, auth: accS}));
+      setValue("city", "");
+      setValue("name", "");
+      setValue("email", "");
+      setValue("orderDescrip", "");
+      setValue("phoneNum", "");
+      setValue("specImgsOrder", []);
+    }
   };
   const descripError = orderDescripRequiredError
     ? "Обязательно заполните это поле"
     : `Минимальное количество символов ${minDescripTextLength}`;
+  if (orderRequestResultError) {
+    return (
+      <div className={classes.successMessageBlock}>
+        {orderRequestResultError}
+      </div>
+    );
+  }
+  if (isOrderSuccess) {
+    return (
+      <div className={classes.successMessageBlock}>
+        {orderRequestResult.message}
+      </div>
+    );
+  }
   return (
     <div className={classes.indivOrderContainer}>
       <form
@@ -158,10 +212,10 @@ const IndivOrderPage: React.FC = () => {
 
         <ImageAdder
           images={currentImgs}
-          changeImages={(v: ImageType[]) => setValue("images", v)}
+          changeImages={(v: ImageType[]) => setValue("specImgsOrder", v)}
         />
         <button type="submit" className={classes.completeBtn}>
-          Отправить пожелания
+          {orderRequestResultIsLoading ? "Loading ..." : "Отправить пожелания"}
         </button>
       </form>
     </div>
