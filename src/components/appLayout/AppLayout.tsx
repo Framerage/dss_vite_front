@@ -21,6 +21,11 @@ import {getUserAuth, resetUserRequest} from "store/modules/auth/actions";
 import {fetchUserInfo} from "store/modules/auth/async-actions";
 import {isShopCartUse} from "store/modules/cart/selectors";
 import {selectPopupImage} from "store/modules/popup/selectors";
+import {useResize} from "hooks/useResize";
+import CatalogIcon from "assets/icons/menu-icons/catalog.svg";
+import OrdersIcon from "assets/icons/menu-icons/design-order.svg";
+import AboutIcon from "assets/icons/menu-icons/about.svg";
+import ContactsIcon from "assets/icons/menu-icons/contacts.svg";
 import classes from "./appLayout.module.css";
 
 const AppLayout: React.FC = () => {
@@ -28,33 +33,45 @@ const AppLayout: React.FC = () => {
   const isAuth = useSelector(isUserAuth);
   const dispatch = useAppDispatch();
   const accTkn = Cookies.get("perAcTkn");
+  const currentWidth = useResize();
+  const isMobileMenu = useMemo(() => currentWidth < 480, [currentWidth]);
+  console.log("render layout");
+  console.log(currentWidth, "currentWidth");
 
   const appNavigation = useMemo(() => {
     return [
       {
-        title: "Каталог",
+        title: !isMobileMenu ? "Каталог" : <img src={CatalogIcon} alt="ctlg" />,
         link: isAuth
           ? APP_AUTH_ROUTES.catalog.link
           : APP_GENERAL_ROUTES.catalog.link,
       },
       {
-        title: "Свой дизайн заказа",
+        title: !isMobileMenu ? (
+          "Свой дизайн заказа"
+        ) : (
+          <img src={OrdersIcon} alt="ord" />
+        ),
         link: APP_AUTH_ROUTES.customOrder.link,
       },
       {
-        title: "О нас",
+        title: !isMobileMenu ? "О нас" : <img src={AboutIcon} alt="abt" />,
         link: isAuth
           ? APP_AUTH_ROUTES.about.link
           : APP_GENERAL_ROUTES.about.link,
       },
       {
-        title: "Контакты",
+        title: !isMobileMenu ? (
+          "Контакты"
+        ) : (
+          <img src={ContactsIcon} alt="cntcs" />
+        ),
         link: isAuth
           ? APP_AUTH_ROUTES.contacts.link
           : APP_GENERAL_ROUTES.contacts.link,
       },
     ];
-  }, [isAuth]);
+  }, [isAuth, isMobileMenu]);
 
   const isCartOpened = useSelector(isShopCartUse);
   const isPopupOpen = useSelector(selectPopupImage);
@@ -112,7 +129,7 @@ const AppLayout: React.FC = () => {
       <AppHeader />
       <main className={classes.mainContainer}>
         {isAuth ? (
-          <>
+          <div className={classes.contentWrapper}>
             <Routes>
               {Object.values(APP_AUTH_ROUTES).map(appRoute => (
                 <Route
@@ -125,9 +142,9 @@ const AppLayout: React.FC = () => {
               <Route path="*" Component={isAuth ? ErrorPage : LoginPage} />
             </Routes>
             <AppMenu menuItems={appNavigation} />
-          </>
+          </div>
         ) : (
-          <>
+          <div className={classes.contentWrapper}>
             <Routes>
               {Object.values(APP_GENERAL_ROUTES).map(appRoute => (
                 <Route
@@ -140,7 +157,7 @@ const AppLayout: React.FC = () => {
               <Route path="*" Component={isAuth ? ErrorPage : LoginPage} />
             </Routes>
             <AppMenu menuItems={appNavigation} />
-          </>
+          </div>
         )}
       </main>
       <AppFooter />

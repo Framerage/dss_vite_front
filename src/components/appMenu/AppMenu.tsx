@@ -18,7 +18,7 @@ const AppMenu: React.FC<{menuItems?: VolumMenuProps[]}> = React.memo(
           {menuItems &&
             menuItems.map((item, index) => (
               <Link
-                key={item.title + index}
+                key={index}
                 to={item.link}
                 className={classes.menuItem}
                 style={itemZindex(index)}

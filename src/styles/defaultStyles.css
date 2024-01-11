@@ -36,9 +36,11 @@
 }
 body,html {
   width: 100%;
-  min-height: 100dvh;
+  min-height: 100svh;
   background: linear-gradient(30deg,var(--extra_app_color),black,var(--exclusive_app_color),#b4b3b3,var(--exclusive_app_color),black,var(--extra_app_color)) no-repeat;
+/* background-color: black; */
 }
+
 *::-webkit-scrollbar {
   width: 15px;
 }
