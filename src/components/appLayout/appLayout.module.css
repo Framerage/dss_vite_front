@@ -11,14 +11,18 @@
   flex: 1 1 auto;
   z-index: 100;
   padding: 0 32px;
-  border: 2px solid green;
 }
 .contentWrapper{
   width: 100%;
   display: flex;
   flex: 1 1 auto;
   justify-content: flex-end;
-  border: 1px solid blue;
+}
+@media screen and (min-width:481px) and (max-width:767px){
+  .mainContainer{
+    padding: 0 16px;
+  padding-bottom: 0px;
+  }
 }
 @media screen and (min-width:320px) and (max-width:480px){
   .mainContainer{

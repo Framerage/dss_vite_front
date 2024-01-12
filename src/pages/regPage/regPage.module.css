@@ -84,3 +84,10 @@
   text-shadow: 0 0px 5px white;
   margin: 10px auto;
 }
+@media screen and (min-width:320px) and (max-width:480px){
+  .formBlock{
+    min-width: 200px;
+    max-width: 350px;
+    margin: 70px 25px 0 15px;
+  }
+}

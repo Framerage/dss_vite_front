@@ -3,6 +3,8 @@
     max-height: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    border: 1px solid red;
 }
 .imageContainer{
     width: 100%;
@@ -17,6 +19,7 @@
     border-radius: 10px;
     border:4px groove transparent;
     transition: 0.2s;
+    margin: 0 auto;
 }
 .imgArrow{
     width: 20px;

@@ -74,7 +74,7 @@ const LoginPage: React.FC = () => {
     <form className={classes.formBlock} onSubmit={handleSubmit(getAuth)}>
       <h2 className={classes.formHead}>Login</h2>
       <input
-        type="text"
+        type="email"
         {...register("email")}
         name="email"
         placeholder="Почта"

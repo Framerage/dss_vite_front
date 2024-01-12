@@ -1,6 +1,8 @@
 .catalogContainer{
     width: 100%;
     display: flex;
+    border: 1px solid red;
+    margin-right: 10px;
 }
 .catalogContent{
     width: 100%;
@@ -8,6 +10,8 @@
     flex-direction: column;
 }
 .extraFunctional{
+    width: 100%;
+    max-width: 720px;
     display: flex;
     align-items: center;
     justify-content: center;

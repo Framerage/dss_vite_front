@@ -1,5 +1,6 @@
 .formBlock {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: 260px;
   border: 6px double var(--exclusive_app_color);
   border-radius: 15px;
@@ -56,4 +57,11 @@
   width: 100%;
   text-align: center;
   padding: 5px 0;
+}
+@media screen and (min-width:320px) and (max-width:480px){
+  .formBlock{
+    min-width: 200px;
+    max-width: 350px;
+    margin: 70px 25px 0 15px;
+  }
 }

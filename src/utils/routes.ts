@@ -63,4 +63,3 @@ export const APP_AUTH_ROUTES: RoutesType = {
   login: {link: `${FOR_GH_PAGES}/auth/login`, component: LoginPage},
   personPage: {link: `${FOR_GH_PAGES}/my-account`, component: PersonalPage},
 };
-// "homepage": "https://framerage.github.io/dss_vite_front",

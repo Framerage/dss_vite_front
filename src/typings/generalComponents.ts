@@ -1,7 +1,8 @@
-import {ReactNode} from "react";
+import {ReactElement} from "react";
 
 export interface VolumMenuProps {
-  title: string | ReactNode;
+  title: string;
   link: string;
   style?: {};
+  icon?: ReactElement | null;
 }

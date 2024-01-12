@@ -173,9 +173,14 @@ text-shadow: 0 0 5px white;
 .headerNavItem:hover {
   text-shadow: 0 0 5px white, 0 0 10px var(--main_app_color), 0 0 15px white, 0 0 20px var(--main_app_color);
 }
-@media screen and (min-width:320px) and (max-width:480px){
+@media screen and (min-width:320px) and (max-width:767px){
   .headerContainer {
     padding: 8px 4px;
+  }
+  .goBackArrow{
+    position: absolute;
+    top: 130px;
+    left: -25px;
   }
   .authedBlock{
     width: 220px;

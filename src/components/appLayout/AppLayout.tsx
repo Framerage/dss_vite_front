@@ -21,7 +21,6 @@ import {getUserAuth, resetUserRequest} from "store/modules/auth/actions";
 import {fetchUserInfo} from "store/modules/auth/async-actions";
 import {isShopCartUse} from "store/modules/cart/selectors";
 import {selectPopupImage} from "store/modules/popup/selectors";
-import {useResize} from "hooks/useResize";
 import CatalogIcon from "assets/icons/menu-icons/catalog.svg";
 import OrdersIcon from "assets/icons/menu-icons/design-order.svg";
 import AboutIcon from "assets/icons/menu-icons/about.svg";
@@ -33,45 +32,37 @@ const AppLayout: React.FC = () => {
   const isAuth = useSelector(isUserAuth);
   const dispatch = useAppDispatch();
   const accTkn = Cookies.get("perAcTkn");
-  const currentWidth = useResize();
-  const isMobileMenu = useMemo(() => currentWidth < 480, [currentWidth]);
-  console.log("render layout");
-  console.log(currentWidth, "currentWidth");
 
   const appNavigation = useMemo(() => {
     return [
       {
-        title: !isMobileMenu ? "Каталог" : <img src={CatalogIcon} alt="ctlg" />,
+        title: "Каталог",
         link: isAuth
           ? APP_AUTH_ROUTES.catalog.link
           : APP_GENERAL_ROUTES.catalog.link,
+        icon: <img src={CatalogIcon} alt="ctlg" />,
       },
       {
-        title: !isMobileMenu ? (
-          "Свой дизайн заказа"
-        ) : (
-          <img src={OrdersIcon} alt="ord" />
-        ),
+        title: "Свой дизайн заказа",
         link: APP_AUTH_ROUTES.customOrder.link,
+        icon: <img src={OrdersIcon} alt="ctlg" />,
       },
       {
-        title: !isMobileMenu ? "О нас" : <img src={AboutIcon} alt="abt" />,
+        title: "О нас",
         link: isAuth
           ? APP_AUTH_ROUTES.about.link
           : APP_GENERAL_ROUTES.about.link,
+        icon: <img src={AboutIcon} alt="ctlg" />,
       },
       {
-        title: !isMobileMenu ? (
-          "Контакты"
-        ) : (
-          <img src={ContactsIcon} alt="cntcs" />
-        ),
+        title: "Контакты",
         link: isAuth
           ? APP_AUTH_ROUTES.contacts.link
           : APP_GENERAL_ROUTES.contacts.link,
+        icon: <img src={ContactsIcon} alt="ctlg" />,
       },
     ];
-  }, [isAuth, isMobileMenu]);
+  }, [isAuth]);
 
   const isCartOpened = useSelector(isShopCartUse);
   const isPopupOpen = useSelector(selectPopupImage);
@@ -115,6 +106,7 @@ const AppLayout: React.FC = () => {
       dispatch(getUserAuth(false));
     }
   }, [userData, accTkn, isAuth]);
+  console.log("render layout");
 
   return (
     <div

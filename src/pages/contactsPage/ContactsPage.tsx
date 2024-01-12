@@ -28,8 +28,8 @@ const ContactsPage: React.FC = () => {
         дому:)
       </div>
       <div className={classes.contentItem}>
-        Телефон для связи:<a href={`tel:${telNumber}`}>{telNumber}</a>, либо
-        соц. сети
+        Телефон для связи:
+        <a href={`tel:${telNumber}`}>{telNumber}</a>,&nbsp;либо соц. сети
         {sharedContacts.map(link => (
           <a
             key={link.name}
@@ -38,7 +38,7 @@ const ContactsPage: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={link.img} width={35} height={35} alt="shareLink" />
+            <img src={link.img} alt="shareLink" />
           </a>
         ))}
       </div>
