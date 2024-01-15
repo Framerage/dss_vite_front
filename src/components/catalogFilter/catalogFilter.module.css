@@ -108,7 +108,7 @@
   .menuItem:last-child::after {
     box-shadow: -100px 100px 10px black;
   }
-  @media screen and (max-width:1536px){
+  @media screen and (min-width:1536px){
     .menu3dContainer {
       width: 300px;
       height: 300px;
@@ -144,7 +144,7 @@
       font-size: 12px;
     }
   }
-  @media screen and (min-width:320px) and (max-width:1024px){
+  @media screen and (min-width:768px) and (max-width:1024px){
     .menu3dContainer {
       width: 150px;
       height: 300px;
@@ -157,6 +157,40 @@
     }
     .menuItem {
       width: 100px;
+      height: 80px;
+      margin-left: 22px;
+      margin-bottom: 15px;
+    }
+    .menuItem::before {
+      top: 0;
+      left: -22px;
+      width: 20px;
+    }
+    .menuItem::after {
+      top: -22px;
+      right: 0;
+      height: 20px;
+    }
+    .menuItem:hover {
+      transform: translateX(20px);
+    }
+    .activeMenuItem{
+      transform: translateX(20px);
+    }
+  }
+  @media screen and (min-width:481px) and (max-width:767px){
+    .menu3dContainer {
+      width:85px;
+      height: 300px;
+    padding-left: 0px;
+    margin-right: 10px;
+    }
+    .menuBlock {
+      width: 85px;
+      margin-top: 120px;
+    }
+    .menuItem {
+      width: 40px;
       height: 80px;
       margin-left: 22px;
     }
@@ -175,5 +209,48 @@
     }
     .activeMenuItem{
       transform: translateX(20px);
+    }
+  }
+  @media screen and (min-width:320px) and (max-width:480px){
+    .menu3dContainer {
+      width:60px;
+      height: 300px;
+      padding-left: 0px;
+      margin-right: 10px;
+    }
+    .menuBlock {
+      width: 60px;
+      margin-top: 120px;
+    }
+    .menuItem {
+      width: 25px;
+      height: 25px;
+      margin-left: 22px;
+    }
+    .menuItem::before {
+      top: 0;
+      left: -22px;
+      width: 20px;
+    }
+    .menuItem::after {
+      top: -22px;
+      right: 0;
+      height: 20px;
+    }
+    .menuItem:hover {
+      transform: translateX(10px);
+    }
+    .activeMenuItem{
+      transform: translateX(10px);
+    }
+    .itemLink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      &>img{
+        width: 16px;
+        height: 16px;
+      }
     }
   }

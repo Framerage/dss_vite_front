@@ -30,16 +30,47 @@ import {editUserExtraInfoFx} from "store/modules/auth/async-actions";
 import {useFiltredObj} from "hooks/useFilteredObj";
 import {useFiltredCards} from "hooks/catalog/useFiltredCards";
 import Cookies from "js-cookie";
+import BreakFilters from "assets/icons/catalog-menu-icons/filters-off.svg";
+import Print3D from "assets/icons/catalog-menu-icons/3d-prod.svg";
+import WoodCutting from "assets/icons/catalog-menu-icons/cutting.svg";
+import Furniture from "assets/icons/catalog-menu-icons/furniture.svg";
+import LaserEngr from "assets/icons/catalog-menu-icons/laser.svg";
+import NeonDecor from "assets/icons/catalog-menu-icons/neon.svg";
+import ReliefPicts from "assets/icons/catalog-menu-icons/pictures.svg";
 import classes from "./catalog.module.css";
 
 const catalogFilterItems = [
-  {title: "Все", link: ""},
-  {title: "Неоновый декор", link: "neon"},
-  {title: "Резка по дереву", link: "plywood"},
-  {title: "Лазерная гравировка", link: "laserEngr"},
-  {title: "Фурнитура/мебель", link: "furniture"},
-  {title: "3D-принтер", link: "volPrinter"},
-  {title: "Рельефные картины", link: "reliefPics"},
+  {title: "Все", link: "", icon: <img src={BreakFilters} alt="all" />},
+  {
+    title: "Неоновый декор",
+    link: "neon",
+    icon: <img src={NeonDecor} alt="all" />,
+  },
+  {
+    title: "Резка по дереву",
+    link: "plywood",
+    icon: <img src={WoodCutting} alt="wood" />,
+  },
+  {
+    title: "Лазерная гравировка",
+    link: "laserEngr",
+    icon: <img src={LaserEngr} alt="laser" />,
+  },
+  {
+    title: "Фурнитура/мебель",
+    link: "furniture",
+    icon: <img src={Furniture} alt="furn" />,
+  },
+  {
+    title: "3D-принтер",
+    link: "volPrinter",
+    icon: <img src={Print3D} alt="printer" />,
+  },
+  {
+    title: "Рельефные картины",
+    link: "reliefPics",
+    icon: <img src={ReliefPicts} alt="picts" />,
+  },
 ];
 const Catalog: React.FC = React.memo(() => {
   const dispatch = useDispatch<AppDispatch>();

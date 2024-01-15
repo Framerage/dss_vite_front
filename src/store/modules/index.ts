@@ -4,6 +4,7 @@ import {catalogReducer} from "./catalog";
 import {shopCartReducer} from "./cart";
 import {popupReducer} from "./popup";
 import {orderReducer} from "./order";
+import {appReducer} from "./app";
 
 export const rootReducer = combineReducers({
   authReducer,
@@ -11,5 +12,6 @@ export const rootReducer = combineReducers({
   shopCartReducer,
   popupReducer,
   orderReducer,
+  appReducer,
 });
 export type RootState = ReturnType<typeof rootReducer>;

@@ -1,7 +1,8 @@
 import React, {useCallback} from "react";
 import {Link} from "react-router-dom";
 import {VolumMenuProps} from "typings/generalComponents";
-import {useResize} from "hooks/useResize";
+import {useSelector} from "react-redux";
+import {selectIsMobile, selectIsTablet} from "store/modules/app/selectors";
 import classes from "./appMenu.module.css";
 
 interface AppMenuItemProps {
@@ -27,8 +28,8 @@ const AppMenuItem: React.FC<AppMenuItemProps> = React.memo(
 );
 const AppMenu: React.FC<{menuItems?: VolumMenuProps[]}> = ({menuItems}) => {
   const itemsCount = menuItems ? menuItems.length : 0;
-  const currentWidth = useResize();
-  const isMobileMenu = currentWidth < 1025;
+  const isMobileMenu = useSelector(selectIsMobile);
+  const isTabletMenu = useSelector(selectIsTablet);
 
   const getItemZindex = useCallback(
     (index: number) => {
@@ -48,7 +49,7 @@ const AppMenu: React.FC<{menuItems?: VolumMenuProps[]}> = ({menuItems}) => {
               index={index}
               menuItem={item}
               itemStyle={getItemZindex}
-              isMobile={isMobileMenu}
+              isMobile={isMobileMenu || isTabletMenu}
             />
           ))}
       </ul>

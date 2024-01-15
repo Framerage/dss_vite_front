@@ -96,7 +96,7 @@
   .menuItem:last-child::after {
     box-shadow: 100px 100px 10px black;
   }
-@media screen and (max-width:1536px){
+@media screen and (min-width:1536px){
   .menu3dContainer {
     padding-right: 20px;
   }
@@ -118,7 +118,7 @@
     font-size: 14px;
   }
 }
-@media screen and (min-width:320px) and (max-width:1024px){
+@media screen and (min-width:481px) and (max-width:1024px){
 .menu3dContainer {
   width: 75px;
   height: min-content;
@@ -153,4 +153,54 @@
 .menuItem:last-child::after {
   box-shadow:60px 60px 10px black;
 }
+}
+@media screen and (min-width:320px) and (max-width:480px){
+  .menu3dContainer {
+    width: 57px;
+    height: min-content;
+    padding-right: 0px;
+  }
+  .menuBlock{
+    width: 57px;
+    height: min-content;
+    margin-top: 0;
+    padding: 20px 0;
+    transform: skewY(0deg);
+  }
+  .menuItem{
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+  }
+  .itemLink {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    &>img{
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .menuItem:hover {
+    transform: translateX(-10px);
+  }
+  .menuItem::before {
+    top: -16px;
+    right: -16px;
+    width: 15px;
+    height: 100%;
+  }
+  .menuItem::after {
+    top: -17px;
+    width: 100%;
+    height: 15px;
+  }
+  .menuItem:last-child::after {
+    box-shadow:60px 60px 10px black;
+  }
 }

@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     border: 1px solid red;
-    margin-right: 10px;
 }
 .catalogContent{
     width: 100%;
@@ -33,6 +32,7 @@
     align-items: flex-start;
     justify-content: center;
     margin-top: 36px;
+    gap: 10px;
 }
 .warnText{
     font-size: 28px;

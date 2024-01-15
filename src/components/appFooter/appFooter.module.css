@@ -19,6 +19,13 @@
       text-shadow: 0 0 2px black,0 0 5px black,0 1px 10px black;
     }
   }
+  .iconsContainer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
   .sharedLink{
     text-decoration: none;
     transition: 0.2s;
@@ -28,3 +35,10 @@
   .sharedLink:hover{
     transform: scale(1.1);
   }
+  @media screen and (min-width:320px) and (max-width:480px){
+    .footerContainer{
+    height: 100%;
+    max-height: 150px;
+    flex-direction: column;
+    }
+  } 

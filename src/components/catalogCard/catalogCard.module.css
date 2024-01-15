@@ -105,6 +105,8 @@
     margin-right: 10px;
     cursor: pointer;
     transition: 0.2s;
+    color: white;
+    text-shadow: 0 5px 5px black;
 }
 .addBtn:hover{
     transform: scale(1.1);
@@ -112,7 +114,7 @@
 .addBtn:active{
     transform: scale(0.95);
 }
-@media screen and (min-width:320px) and (max-width:1024px){
+@media screen and (min-width:481px) and (max-width:1024px){
     .cardContainer{
         min-width: 160px;
         flex-direction: column;
@@ -134,5 +136,61 @@
     }
     .cardInfo{
         max-height: 60%;
+    }
+}
+@media screen and (min-width:320px) and (max-width:480px){
+    .cardContainer{
+        min-width: 120px;
+        width: 100%;
+        max-width: 200px;
+        flex-direction: column;
+        height: min-content;
+        max-height: 800px;
+        margin: 0;
+    }
+    .extraCardInfo{
+        flex-direction: column;
+        justify-content: space-around;
+        border: 1px solid red;
+
+    }
+    .extraInfoText{
+        margin: 0;
+        justify-content: center;
+        border: 1px solid red;
+
+    }
+    .cardPreview{
+        height: min-content;
+        max-height: min-content;
+        justify-content: flex-start;
+        border: 1px solid red;
+
+    }
+    .cardInfo{
+        max-height: 60%;
+        border: 1px solid red;
+
+    }
+    .infoCardTitle{
+        font-size: 20px;
+        border: 1px solid red;
+
+    }
+    .infoCardTheme{
+        font-size: 16px;
+        border: 1px solid red;
+
+    }
+    .infoCardDescrip{
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid red;
+    }
+    .descripText{
+        font-size: 14px;
+        font-weight: 400;
+        border: 1px solid red;
+
     }
 }

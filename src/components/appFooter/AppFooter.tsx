@@ -32,17 +32,19 @@ const AppFooter: React.FC = () => {
   return (
     <div className={classes.footerContainer}>
       <span>Share in:</span>
-      {sharedContacts.map(shared => (
-        <div
-          key={shared.name}
-          title={shared.name}
-          rel="noopener noreferrer"
-          onClick={() => onOpenBlankWithCurPath(shared.link)}
-          className={classes.sharedLink}
-        >
-          <img src={shared.img} alt="footerLink" width={35} height={35} />
-        </div>
-      ))}
+      <div className={classes.iconsContainer}>
+        {sharedContacts.map(shared => (
+          <div
+            key={shared.name}
+            title={shared.name}
+            rel="noopener noreferrer"
+            onClick={() => onOpenBlankWithCurPath(shared.link)}
+            className={classes.sharedLink}
+          >
+            <img src={shared.img} alt="footerLink" width={35} height={35} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
