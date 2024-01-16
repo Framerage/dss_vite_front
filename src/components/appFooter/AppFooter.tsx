@@ -3,6 +3,7 @@ import React from "react";
 import VkIcon from "assets/icons/vk.svg";
 import WhatsappIcon from "assets/icons/whatsapp.svg";
 import TelegramIcon from "assets/icons/telegram.svg";
+import {useResize} from "hooks/useResize";
 import {APP_DOMEN} from "./constants";
 
 import classes from "./appFooter.module.css";
@@ -29,6 +30,8 @@ const onOpenBlankWithCurPath = (link: string) => {
 };
 
 const AppFooter: React.FC = () => {
+  useResize();
+
   return (
     <div className={classes.footerContainer}>
       <span>Share in:</span>

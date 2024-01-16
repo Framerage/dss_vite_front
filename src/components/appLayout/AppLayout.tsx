@@ -25,23 +25,7 @@ import CatalogIcon from "assets/icons/menu-icons/catalog.svg";
 import OrdersIcon from "assets/icons/menu-icons/design-order.svg";
 import AboutIcon from "assets/icons/menu-icons/about.svg";
 import ContactsIcon from "assets/icons/menu-icons/contacts.svg";
-import {
-  selectIsMobile,
-  selectIsTablet,
-  selectIsDesktop,
-} from "store/modules/app/selectors";
-// import {
-//   setIsDesktop,
-//   setIsMobile,
-//   setIsTablet,
-// } from "store/modules/app/actions";
 import classes from "./appLayout.module.css";
-import {useResize} from "hooks/useResize";
-import {
-  setIsDesktop,
-  setIsMobile,
-  setIsTablet,
-} from "store/modules/app/actions";
 
 const AppLayout: React.FC = () => {
   const userData = useSelector(selectUserData);
@@ -122,34 +106,6 @@ const AppLayout: React.FC = () => {
       dispatch(getUserAuth(false));
     }
   }, [userData, accTkn, isAuth]);
-  // const dispatch = useAppDispatch();
-
-  const isMobile = useSelector(selectIsMobile);
-  const isTablet = useSelector(selectIsTablet);
-  const isDesktop = useSelector(selectIsDesktop);
-  const appWidth = window.innerWidth;
-  useEffect(() => {
-    if (appWidth > 768) {
-      dispatch(setIsDesktop(true));
-      dispatch(setIsTablet(false));
-      dispatch(setIsMobile(false));
-    }
-    if (appWidth <= 768 && appWidth > 480) {
-      dispatch(setIsTablet(true));
-      dispatch(setIsMobile(false));
-      dispatch(setIsDesktop(false));
-    }
-    if (appWidth <= 480 && appWidth >= 320) {
-      dispatch(setIsMobile(true));
-      dispatch(setIsTablet(false));
-      dispatch(setIsDesktop(false));
-    }
-  }, [appWidth]);
-  console.log(isMobile, "isMobile");
-  console.log(isTablet, "isTablet");
-  console.log(isDesktop, "isDesktop");
-
-  console.log("render layout");
 
   return (
     <div

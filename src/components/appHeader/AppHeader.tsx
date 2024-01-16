@@ -17,6 +17,7 @@ import {APP_AUTH_ROUTES, APP_GENERAL_ROUTES} from "utils/routes";
 
 import {selectCatalogStatus} from "store/modules/catalog/selectors";
 import {isShoppingCartUse, resetUserShopCart} from "store/modules/cart/actions";
+import {selectIsMobile} from "store/modules/app/selectors";
 import cn from "classnames";
 import classes from "./appHeader.module.css";
 
@@ -25,6 +26,7 @@ const AppHeader: React.FC = () => {
   const isAuth = useSelector(isUserAuth);
   const userInfo = useSelector(selectUserData);
   const isCatalogOpen = useSelector(selectCatalogStatus);
+  const isMobile = useSelector(selectIsMobile);
   const userBonuses = userInfo?.bonuses || 0;
   const currentUser = userInfo?.name || "-";
   const userCartCount = userInfo?.userCart?.length || 0;
@@ -61,7 +63,7 @@ const AppHeader: React.FC = () => {
           height={30}
           style={{transform: "rotate(-130deg)", position: "relative"}}
         />
-        <span className={classes.arrowText}>Назад</span>
+        {!isMobile && <span className={classes.arrowText}>Назад</span>}
       </div>
       {isAuth ? (
         <div className={classes.authedBlock}>

@@ -10,6 +10,10 @@ export const selectIsTablet = createSelector(
   selectAppState,
   state => state.isTablet,
 );
+export const selectIsLowDesktop = createSelector(
+  selectAppState,
+  state => state.isLowDesktop,
+);
 export const selectIsDesktop = createSelector(
   selectAppState,
   state => state.isDesktop,

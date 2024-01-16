@@ -2,7 +2,11 @@ import React, {useCallback} from "react";
 import {Link} from "react-router-dom";
 import {VolumMenuProps} from "typings/generalComponents";
 import {useSelector} from "react-redux";
-import {selectIsMobile, selectIsTablet} from "store/modules/app/selectors";
+import {
+  selectIsLowDesktop,
+  selectIsMobile,
+  selectIsTablet,
+} from "store/modules/app/selectors";
 import classes from "./appMenu.module.css";
 
 interface AppMenuItemProps {
@@ -30,6 +34,7 @@ const AppMenu: React.FC<{menuItems?: VolumMenuProps[]}> = ({menuItems}) => {
   const itemsCount = menuItems ? menuItems.length : 0;
   const isMobileMenu = useSelector(selectIsMobile);
   const isTabletMenu = useSelector(selectIsTablet);
+  const isLowDesktop = useSelector(selectIsLowDesktop);
 
   const getItemZindex = useCallback(
     (index: number) => {
@@ -49,7 +54,7 @@ const AppMenu: React.FC<{menuItems?: VolumMenuProps[]}> = ({menuItems}) => {
               index={index}
               menuItem={item}
               itemStyle={getItemZindex}
-              isMobile={isMobileMenu || isTabletMenu}
+              isMobile={isMobileMenu || isTabletMenu || isLowDesktop}
             />
           ))}
       </ul>
