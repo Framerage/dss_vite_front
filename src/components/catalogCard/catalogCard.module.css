@@ -169,7 +169,7 @@
 
     }
     .infoCardTitle{
-        font-size: 20px;
+        font-size: 18px;
 
     }
     .infoCardTheme{
@@ -179,12 +179,13 @@
     .infoCardDescrip{
         font-size: 16px;
         font-weight: 600;
-        border: 1px solid red;
     }
     .descripText{
         font-size: 14px;
         font-weight: 400;
-        border: 1px solid red;
-
+    }
+    .addBtn{
+        margin-right: 10px;
+        margin-top: 10px;
     }
 }

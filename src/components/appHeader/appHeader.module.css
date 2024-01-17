@@ -47,6 +47,8 @@
   position: absolute;
   top: 140px;
   left: 0px;
+  border: none;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -55,6 +57,7 @@
   padding: 0 5px;
   cursor: pointer;
   transition: 0.2s;
+  transform: skewY(5deg);
 }
 .goBackArrow:hover{
   transform: scale(1.1);
@@ -193,5 +196,14 @@ text-shadow: 0 0 5px white;
     width: 220px;
     flex-wrap: wrap;
     gap: 5px;
+  }
+}
+@media screen and (max-height:480px){
+  .headerContainer {
+    position: relative;
+  }
+  .headerBG{
+    border: none;
+    background: transparent;
   }
 }

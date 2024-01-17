@@ -52,7 +52,7 @@ const AppHeader: React.FC = () => {
         <div className={classes.secondLogo}>spirit</div>
         <div className={classes.botBorder}></div>
       </Link>
-      <div
+      <button
         onClick={() => window.history.go(-1)}
         className={classes.goBackArrow}
       >
@@ -64,7 +64,7 @@ const AppHeader: React.FC = () => {
           style={{transform: "rotate(-130deg)", position: "relative"}}
         />
         {!isMobile && <span className={classes.arrowText}>Назад</span>}
-      </div>
+      </button>
       {isAuth ? (
         <div className={classes.authedBlock}>
           <div className={classes.cartBlock}>

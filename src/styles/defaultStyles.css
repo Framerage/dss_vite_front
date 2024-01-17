@@ -33,6 +33,10 @@
   /* font-family: 'Caprasimo', serif; */
   /* for english */
   font-weight:600;
+
+}
+*:focus{
+  outline: 3px solid black;
 }
 body,html {
   width: 100%;

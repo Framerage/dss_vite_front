@@ -1,7 +1,6 @@
 .catalogContainer{
     width: 100%;
     display: flex;
-    border: 1px solid red;
 }
 .catalogContent{
     width: 100%;
@@ -16,7 +15,6 @@
     justify-content: center;
     padding:  10px;
     background: linear-gradient(var(--light_app_color) 30%,var(--extra_app_color) );
-    border-radius: 10px;
     border-bottom: 3px groove var(--exclusive_app_color);
     border-right: 3px groove var(--exclusive_app_color);
     border-left: 3px groove var(--exclusive_app_color);
@@ -69,3 +67,27 @@
 .createBtn:active{
     transform: scale(0.9);
 }
+@media screen and (min-width:320px) and (max-width:480px){
+    .extraFunctional{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .createBtn{
+        min-width: 120px;
+        width: 100%;
+        max-width: 200px;
+        font-size: 14px;
+        color: black;
+        padding: 5px 10px;
+        margin: 0;
+    }
+}
+@media screen and (max-height:480px){
+    .extraFunctional{
+        background: transparent;
+        border: none;
+        position: sticky;
+        top: 10px;
+        border-radius: 0;
+    }
+} 

@@ -14,7 +14,8 @@
   }
   .shopCart {
     position: absolute;
-    width: 420px;
+    width: 100%;
+    max-width: 420px;
     min-height: 100vh;
     right: 0;
     background: #38b4b4;
