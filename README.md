@@ -1,8 +1,9 @@
 Проект разработан на React v 18.16.1
 Пакетный менеджер - yarn 1.22.19
 Архитектурра проекта - класическая простая
-Стек -  React, Redux toolkit, Typescript
+Стек -  React, Redux toolkit, Typescript, RHF(React hook form), observer
 
+Описание проекта: перенос фронтовой части личного магазина на Vite, добавление prettier, eslint, использование современных решений, stylelint, переход на новую версию Redux-toolkit (v2.0+)
 Для запуска проекта необходимо установить зависимости
 ### 'npm ci' 
 
